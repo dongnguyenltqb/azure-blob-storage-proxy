@@ -4,7 +4,7 @@ const { getSasTokenRForSession } = require("./storage");
 
 const fastify = require("fastify")({ logger: false });
 
-fastify.get("/:session_id/:file_name", async (req, res) => {
+fastify.get("/private/:session_id/:file_name", async (req, res) => {
   const { session_id, file_name } = req.params;
   let { container_url, sasOutputChanToken, token } =
     await getSasTokenRForSession(session_id);
